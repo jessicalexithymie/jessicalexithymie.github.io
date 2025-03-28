@@ -146,23 +146,26 @@ footer{
 }
 .projets_list_elem{
     width:25%;
-    display:flex;
-    flex-flow:column;
-    justify-content:flex-start;
-    align-items: center;
-    text-decoration:none;
+}
+.projets_list_elem_title{
+    width:50%;
+    text-align: center;
+    font-size:120%;
+}
+.projets_list_elem_text{
+    width:75%;
+    hyphens:auto;
+    text-align: center;
+    font-size:110%;
 }
 .projets_link{
     width:100%;
     text-decoration:none;
     color:#ffb7e9;
     display:flex;
-    justify-content:center;
-    font-size:120%;
-}
-.projets_list_elem:hover{
-    background-color:#ffd1f1;
-    
+    align-items:center;
+    flex-direction:column ;
+    justify-content: space-between;
 }
 .projets_link:hover{
     color:#fdf5e6;
