@@ -209,3 +209,10 @@ footer{
     width:100%;
     hyphens:auto;
 }
+.projet_link{
+    text-decoration:underline;
+    color:#ffb7e9;
+}
+.projets_link:hover{
+    color:#fdf5e6;
+}

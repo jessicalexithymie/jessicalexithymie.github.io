@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Enzo's Portfolio | Ministages44</title>
         <link href="style/style.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />        
     </head>
     <body>
         <div class="main">
@@ -57,29 +58,78 @@
                         <div class="projet_body_line">
                             <div class="projet_description">
                                 <h3>Déroulé du projet:</h3>
+                                Projet réalisé en groupe avec l'outil git en utilisant un système de tickets, pour répartir les tâches:<br>
+                                <img src="images/issues_board.png" alt="Image illustrant les tickets"><br>
+                                Chaque ticket correspond à une demande ou un souci à résoudre.<br>
+                                <h3>Exemples de soucis résolus:</h3>
+                                <li>
+                                    <ul>-Envois de rappels et signalement d'absences non fonctionnels</ul>
+                                    <ul>-Absence des établissements de type "Collège" dans la liste des établissements réservants</ul>
+                                    <ul>-Erreur lors de l'enregistrement d'une réservation pour un étudiant n'appartenant pas à un établissement connu par le site</ul>
+                                </li>
+                                Pour la majorité des problèmes résolus, j'ai simplement pu voir dans quel fichier on implémentait la fonctionnalité concernée, et j'ai simplement 
+                                cherché le morceau de code qui posait des problèmes.<br>
+                                Par exemple, pour l'erreur concernant les élèves appartenant à un établissement non connu, le problème venait d'une liste déroulante dont la donnée était sensée ne pas être conservée en cochant "établissement non connu"
+                                Que l'on conservait en fait:<br>
+                                <img src="images/liste_avant_fix.png" alt="image illustrant l'interface avant la résolution du problème"><br>
+                                Pour résoudre ce problème je me suis assurée d'abord côté front que l'on ne puisse pas sélectionner le texte en haut de la liste en utilisant l'attribut "disabled selected"" sur ce premier élément, puis j'ai fait en sorte que la valeur retournée soit bien celle attendu pour un établissement non enregistré.<br>
+                                <img src="images/liste_après_fix.png" alt="image illustrant l'interface après la résolution du problème"><br><br>
+                                <h3>Exemples de demandes d'améliorations à apporter à l'application:</h3>
+                                <li>
+                                    <ul>Implémentation d'une liste utilisant du Javascript pour pouvoir écrire une partie d'un mot afin de filtrer les résultats</ul>
+                                    <ul>Remplacement de l'affichage des crénaux en "complet" par une suppression de la liste</ul>
+                                    <ul>Construction des listes de façon dynamique</ul>
+                                    <ul>Ajout d'une fonctionnalité permettant l'ajout d'une formation à une liste de favoris</ul>
+                                </li>
+                                Pour les améliorations, j'ai commencé par noter sur papier tous les fichiers impactés par la mise à jour ou l'ajout de la fonctionnalité concernée et les potentiels changements à réaliser sur la base de données:<br>
+                                Par exemple, pour l'ajout de formation favorites, les fichiers à modifier étaient ceux en lien avec le profil de l'utilisateur pour la gestion de cette liste de favoris, et ceux comportant des liste proposant de rechercher un ministage via une formation pour ramener les formations favorites de l'utilisateur vers le haut de la liste.
+                                Cela a aussi demandé l'ajout en base de donnée d'une table reliant les utilisateurs aux formations, qui stocke pour chaque formation ajoutée aux favoris l'id de l'utilisateur et celui de la formation.<br>
+                                <a href="doc_formation_favorites.pdf" class="projet_link">Documentation technique de cette nouvelle fonctionnalité</a><br>
                                 <br>
-                                <br>
-                                <h3>Bilan</h3>
-                                
+                                Une autre amélioration réalisée a donc été la modification de l'affichage des listes déroulantes pour permettre une recherche plus facile.
+                                <br>Pour cette fonctionnalité, j'ai du me documenter sur le langage Javascript que je ne maîtrise pas, et faire des tests à côté, voici la documentation utilisée, et un exemple de liste comme celle que j'ai pu réaliser pour le projet.<br>
+                                <a href="https://select2.org/" class="projet_link">Documentation Select2</a><br>
+                                Exemple d'une implementation de Select2:<br>
+                                <select class="js-ministage" style="width:30%">
+                                    <option disabled selected>-Choisir une formation-</option>
+                                    <option value="1">BTS Services Informatiques aux Organisations</option>
+                                    <option value="3">BTS Touristme</option>
+                                    <option value="4">BTS Commerce</option>
+                                    <option value="5">BTS Finance</option>
+                                    <option value="6">BTS Médecine</option>
+                                    <option value="7">License Langue Etrangere Appliquée</option>
+                                    <option value="8">License Informatique</option>
+                                    <option value="9">License Biologie</option>
+                                    <option value="10">License Droit</option>
+                                    <option value="2">License Langues, Littératures et Cultures Etrangères et Régionales</option>
+                                    <option value="11">Master Métiers de l’enseignement, de l'éducation et de la formation</option>
+                                    <option value="12">Master Biogéosciences</option>
+                                    <option value="13">Master Informatique</option>
+                                    <option value="14">Enseignement de Spécialité Numérique et Sciences Informatiques</option>
+                                    <option value="15">Enseignement de Spécialité Physique-Chimie</option>
+                                    <option value="16">Enseignement de Spécialité Langues Littératures et Cultures Etrangères et Régionales</option>
+                                    <option value="17">Enseignement de Spécialité Mathématiques</option>
+                                </select>
+                            <br>
+                            L'ajout de ces fonctionnalités vise à rendre l'utilisation du site plus agréable et fluide pour les utilisateurs, en facilitant la recherche d'une formation dans la liste qui est assez longue.
+                            <br>
+                            <h3>Dépploiement des modifications effectuées</h3>
+                            Pour rendre les modifications apportées à l'application, il a fallu les dépployer sur le serveur qui héberge le site.<br>
+                            On commence donc par créer une sauvegarde des fichiers présents sur le serveur qu'on renome afin de pouvoir annuler la modification apportée en cas de problème.<br>
+                            On peut ensuite copier les fichiers contenant les variables d'environnement et les ajouter à la version qu'on a en local.<br>
+                            Ensuite, on copie les fichiers qu'on a en local et on les dépose sur le serveur.<br>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer>
-                <div class="foot_main">
-                    <div class="foot_elem">
-                        <a class="foot_link"
-                            href="https://github.com/jessicalexithymie">GitHub</a>
-                    </div>
-                    <div class="foot_elem">
-                    </div>
-                    <div class="foot_elem">
-                        <a class="foot_link"
-                            href="https://www.linkedin.com/in/enzo-praizelin-344031272/">Linkedin</a>
-                    </div>
-                </div>
-            </footer>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.js-ministage').select2();
+    });
+    </script>
     </body>
 </html>
