@@ -1,27 +1,27 @@
 body,html{
-    
     width:100%;
     margin:0;
     padding:0;
     background-color: #383E42;
 }
 header{
-    height:7.5%;
+    height:6rem;
 }
 .main{
     width:100%;
     background-color: #383E42;
     color:#FFADFB;
-    height: 100vh;
+    min-height: 100vh;
     padding:0;
     margin:0;
-    position:relative;
+    display:flex;flex-direction:column
 }
 .main_body{
     width:100%;
     height: 75%;
     position:relative;
     padding-top:10%;
+    margin-bottom:7.5em;
 }
 
 .navbar_main{
@@ -59,11 +59,11 @@ header{
     font-size:150%
 }
 footer{
-    position:relative;
+    position:fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 7.5rem;
 }
 .foot_main{
     display:flex;
@@ -72,6 +72,7 @@ footer{
     width:100%;
     background-color:#ffb7e9;
     height:100%;
+    margin-top: auto;
 }
 .foot_elem{
     display:flex;
