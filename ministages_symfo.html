@@ -52,7 +52,7 @@
                             </div>
                             <div class="projet_section_text">
                                 Projet réalisé en cours, et lors de mon stage de deuxième année<br>
-                                Le projet vise à réaliser et déployer une version de ministage sous symfony, et utilisant une nouvelle version de PHP.<br>
+                                Le projet vise à réaliser et déployer une version de ministage sous <b>symfony</b>, et utilisant une nouvelle version de <b>PHP</b>.<br>
                                 Ministages44 est une application dont le but est pour des établissements de créer ou réserver des ministages pour qu'un élève de collège ou de lycée découvre une formation.
                             </div>
                             </div>
@@ -60,7 +60,21 @@
                         <div class="projet_body_line">
                             <div class="projet_description">
                                 <h3>Déroulé du projet:</h3>
-
+                                Le projet a été réalisé grâce à l'outil <b>git</b>, les tâches à réaliser étaient définies sous forme de tickets:<br>
+                                <img src="images/issues_board_symfony.png" alt="image issues board"><br>
+                                On a chacuns pu travailler sur une partie du projet qui nous était assignée. Ainsi, au début, par groupe de deux personnes, on a créé les entitées symfony d'abord sans lien entre elles, puis en les liants entre elles.<br>
+                                Par exemple, un établissement peut être lié à un ou plusieurs ministages, réservations et/ou utilisateurs.<br>
+                                On a pu utiliser les migrations de <b>symfony</b> pour créer les différentes tables de la base de donnée à partir de nos entités.<br>
+                                Par la suite nous avons pu créer nos différents controlleurs, qui se chargent de récupérer et traiter les données afin de les renvoyer sur nos vues, ainsi que de définir les routes vers nos différentes pages.<br>
+                                Ici par exemple, nous avons deux fonctions d'un controlleur qui permettent l'affichage de la liste de tous les ministages, et l'affichage des informations d'un ministage dont l'id est rentrée<br>
+                                <img src="images/controller.png" alt="image controller"><br>
+                                <br>
+                                Pour l'affichage, nous nous sommes contentés de réaliser l'application sous forme d'une API pour la première version.<br>
+                                Notre temps passé sur le projet étant limité le projet servira surtout de base que les étudiants de l'an prochain pourront reprendre afin de proposer une version plus aboutie.<br>
+                                Lors de mon stage, je n'ai pas eu l'occasion de proposer de nouvelle fonctionnalité sur l'application, mais j'ai effectué un travail de refactoring afin de rendre le code plus lisible, compréhensible et donc maintenable.<br>
+                                La base de ce travail de refactoring a été de définir une convention de nommage qui est la camelCase pour les méthodes des controlleurs, et la snake_case pour les routes et noms des vues.<br>
+                                Ainsi, un nom pour une méthode d'un controlleur serait "actionNomControlleu", par exemple, showFormationsEtablissement qui affiche la liste des formations d'un établissement donné.<br>
+                                Et un nom de route aurait la forme "/controller/app_controller_action" comme par exemple app_ministage_index qui mène à la liste des ministages.
                             </div>
                         </div>
                     </div>
